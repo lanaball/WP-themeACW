@@ -1,0 +1,775 @@
+/* 
+Theme Name: national-council
+Description: First theme for Yoobee Class 
+Author: Allana Kennedy 
+Version: 1.0 
+*/
+
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Base
+    - Colours
+	- Typography
+    - Links
+    - Buttons
+	- Layouts
+	- Forms
+# Components
+	- Header
+    - Footer
+	- Comments
+	- Widgets
+	- Media
+	- Captions
+	- Galleries
+# Specifics
+    - Posts
+    - Pages
+    - Front-Page
+
+--------------------------------------------------------------*/
+
+// ---------------------- COLOURS --------------------------*/
+
+$primary-main: #6E0F39;
+$secondary-main: #E6D3BF;
+
+$primary-accent: #E4A324;
+
+$primary-background: #fbf9f5;
+$secondary-background: #F5EDD5;
+
+
+
+// ---------------------- TYPOGRAPHY --------------------------*/
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.7em;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: $primary-main;
+    line-height: 1.6;
+    font-weight: 300;
+    text-size-adjust: auto;
+    letter-spacing: 1px;
+    background-color: $primary-background;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 4.0rem;
+    line-height: 1.2;
+    letter-spacing: -.1rem;
+}
+
+h2 {
+    font-size: 3.2rem;
+    line-height: 1.25;
+    letter-spacing: -.1rem;
+}
+
+h3 {
+    font-size: 3.0rem;
+    line-height: 1.3;
+    letter-spacing: -.1rem;
+}
+
+h4 {
+    font-size: 2.4rem;
+    line-height: 1.35;
+    letter-spacing: -.08rem;
+}
+
+h5 {
+    font-size: 1.8rem;
+    line-height: 1.5;
+    letter-spacing: -.05rem;
+}
+
+h6 {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    letter-spacing: 0;
+}
+
+p {
+    color: #555759;
+    margin: 1.618em 0;
+    word-break: break-word;
+    text-rendering: optimizeLegibility;
+}
+
+.center {
+    text-align: center;
+}
+
+// ---------------------- LINKS --------------------------*/
+
+a {
+    color: $primary-main;
+    text-decoration: none;
+    margin: 1.618em 0;
+}
+
+a:hover {
+    color: $primary-accent;
+}
+
+ul {
+    padding: 0;
+    list-style-type: disc;
+    list-style-position: inside;
+    margin-bottom: 20px;
+}
+
+
+// ---------------------- BUTTONS ----------------------------*/
+
+button,
+.button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    font-family: 'Poppins', sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    border: none;
+    padding: 1rem;
+    background-color: $primary-main;
+    color: $primary-background;
+    border-radius: 6px;
+}
+
+.btn-pair {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.btn {
+    width: 10%;
+    border-radius: 6px;
+}
+
+.btn-full {
+    width: 10%;
+    border-radius: 6px;
+    background-color: $primary-main;
+    color: $primary-background;
+}
+
+.btn-full:hover {
+    margin-right: 1rem;
+    border: 2px solid $primary-main;
+    opacity: .9;
+    background-color: $primary-background;
+    color: $primary-main;
+}
+
+.btn-clr {
+    color: $primary-main;
+    width: 10%;
+    border-radius: 6px;
+    margin-right: 1rem;
+    border: 2px solid $primary-main;
+    background-color: $primary-background;
+}
+
+.btn-clr:hover {
+    background-color: $primary-main;
+    color: $primary-background;
+    opacity: .9;
+}
+
+
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+    background-color: #E4A324;
+    border: none;
+}
+
+
+
+// ---------------------- LAYOUTS ----------------------------*/
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+[class*="col-"] {
+    // float: left;
+    width: 100%;
+    padding: 2rem 0 0 2rem;
+}
+
+
+.col-s-1 {
+    width: 8.33%;
+}
+
+.col-s-2 {
+    width: 16.66%;
+}
+
+.col-s-3 {
+    width: 25%;
+}
+
+.col-s-4 {
+    width: 33.33%;
+}
+
+.col-s-5 {
+    width: 41.66%;
+}
+
+.col-s-6 {
+    width: 50%;
+}
+
+.col-s-7 {
+    width: 58.33%;
+}
+
+.col-s-8 {
+    width: 66.66%;
+}
+
+.col-s-9 {
+    width: 75%;
+}
+
+.col-s-10 {
+    width: 83.33%;
+}
+
+.col-s-11 {
+    width: 91.66%;
+}
+
+.col-s-12 {
+    width: 100%;
+}
+
+
+// ---------------------- FORMS --------------------------*/
+
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+
+textarea {
+    width: 100%;
+    color: #666;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 3px;
+    overflow: auto;
+}
+
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+figure {
+    margin: 1em 0;
+}
+
+table {
+    margin: 0 0 1.5em;
+    width: 100%;
+}
+
+// ---------------------- HEADER --------------------------*/
+
+.site-header {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    height: 80px;
+}
+
+.logo {
+    position: relative;
+    display: flex;
+    width: 300px;
+    // padding-top: 1rem;
+
+    &-img {
+        display: flex;
+        justify-content: end;
+        padding: 0;
+        margin: 0;
+        height: 50px;
+        width: 110px;
+    }
+
+    &-title {
+        position: absolute;
+        top: 1.5rem;
+        left: 8rem;
+        font-size: 3rem;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+
+
+/* ------- Primary menu ------- */
+.main-navigation {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    padding: 1rem 0 1rem 2rem;
+    margin-right: 5rem;
+    font-size: 2rem;
+
+
+
+    @media (max-width: 900px) {
+        display: none;
+    }
+}
+
+.main-navigation a:hover {
+    color: $primary-accent;
+}
+
+// .main-navigation li:last-child {
+//     border: 2px solid $primary-main;
+//     border-radius: 6px;
+// }
+
+/* Target each menu item */
+.main-navigation li {
+    display: inline-block;
+}
+
+/* Target the link within each menu item */
+.main-navigation li a {
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $primary-main;
+}
+
+/* Style the current menu item */
+.current-menu-item a {
+    font-weight: bold;
+}
+
+.sub-menu {
+    display: none;
+   
+}
+
+.menu-item:hover .sub-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 80%;
+    z-index: 10;
+}
+
+// --------- TOGGLE BUTTON --------*/
+
+.menu-toggle {
+    display: none;
+}
+
+//     @media (max-width: 1100px) {
+//     display: flex;
+//     margin: auto;
+//     padding: 1rem;
+//     font-weight: 600;
+//     border-radius: 5px;
+//     }
+// }
+
+// .menu-toggle:hover {
+//     background-color: $primary-accent;
+// }
+
+
+
+// ---------------------- FOOTER --------------------------*/
+
+.footer {
+    width: 100vw;
+    padding: 2rem 0;
+    background-color: #1B1D1F;
+}
+
+.yellow {
+    background-color: $primary-accent;
+}
+
+.yellow-title {
+    color: $primary-accent;
+}
+
+.pink {
+    background-color: #EE3F60;
+}
+
+.pink-title {
+    color: #EE3F60;
+}
+
+.black {
+    background-color: #1B1D1F;
+    color: $primary-background;
+    border: 2px solid $primary-background;
+}
+
+.black-title {
+    color: $primary-background;
+}
+
+.ft-logo {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.ft-info {
+    text-align: center;
+}
+
+
+/* Posts and pages
+--------------------------------------------- */
+.sticky {
+    display: block;
+}
+
+.post,
+.page {
+    margin: 0 0 1.5em;
+}
+
+.updated:not(.published) {
+    display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+    margin: 1.5em 0 0;
+}
+
+.page-links {
+    clear: both;
+    margin: 0 0 1.5em;
+}
+
+.posted-on {
+    margin: 0 1.5em;
+}
+
+/* Comments
+--------------------------------------------- */
+.comment-content a {
+    word-wrap: break-word;
+}
+
+.bypostauthor {
+    display: block;
+}
+
+
+/* Widgets
+--------------------------------------------- */
+.widget {
+    width: 80%;
+    margin: auto;
+    padding: 3rem 0;
+}
+
+.widget select {
+    max-width: 100%;
+}
+
+.widget input {
+    max-width: 50%;
+}
+
+
+/* Accessibility
+--------------------------------------------- */
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    clip-path: none;
+    color: #21759b;
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+}
+
+/* Do not show the outline on the skip link target. */
+#primary[tabindex="-1"]:focus {
+    outline: 0;
+}
+
+// ---------------------- FRONT-PAGE --------------------------*/
+
+.fp {
+    width: 100vw;
+            // border: #1B1D1F 1px solid;
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            padding: 0 0 8rem 0;
+
+
+    &-hero {
+        position: relative;
+        overflow: hidden;
+        width: 100vw;
+        background-image: linear-gradient($primary-background, $secondary-main);
+        border-radius: 0 0 450px 450px;
+
+
+        &__images {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: baseline;
+            width: 60%;
+            margin: auto;
+        }
+
+
+        &__image1 {
+            width: 30%;
+            height: 40%;
+            transition: transform 0.5s ease;
+        }
+
+        &__image1:hover {
+            transform: scale(1.4);
+        }
+
+        &__image2 {
+            width: 40%;
+            transition: transform 0.5s ease;
+        }
+
+        &__image2:hover {
+            transform: scale(1.2);
+        }
+
+        &__content {
+            width: 60%;
+            margin: auto;
+            text-align: center;
+        }
+
+        &__mission {
+            padding-bottom: 3rem;
+        } 
+    }
+}
+
+.container-column {
+    width: 80vw;
+    padding: 12rem 0;
+    margin: auto;
+}
+
+
+.chevron-down {
+    fill: #0e0e0e;
+    margin: auto;
+    width: 5em;
+    height: 5em;
+    animation: hover-me .5s infinite ease-in-out alternate;
+}
+
+@keyframes hover-me {
+    100% {
+        transform: translate3d(0, 25px, 0);
+    }
+}
+
+
+
+// ---------------------- SINGLE --------------------------*/
+
+.entry-title {
+    font-size: 4rem;
+    padding: 2rem 5rem;
+   display: flex;
+    float: right;
+}
+
+.entry-footer {
+    padding-bottom: 8rem;
+}
+
+.entry-content {
+    border: #cccccc 0.5px solid;
+    padding-bottom: 8rem;
+}
+
+.image-single {
+    object-fit: cover;
+}
+
+
+// ---------------------- PAGE --------------------------*/
+.site-main {
+    width: 80vw;
+    margin: auto;
+    overflow-x: hidden;
+    padding: 5rem 0;
+}
+
+
+.page-title {
+    color: #0e0e0e;
+    padding: 2rem 0;
+    font-size: 1.8rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.card {
+    background-color: #ffffff;
+    // border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+}
+
+.hero-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.card-title {
+    padding-top: 1rem;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+.author {
+    font-size: 14px;
+    color: #888888;
+    margin-bottom: 5px;
+}
+
+.excerpt-container p {
+    font-size: 12px;
+    // height: 200px;
+    overflow-y: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+
+.tags {
+    margin-bottom: 5px;
+
+    li {
+        list-style-type: none;
+        display: inline-block;
+        background-color: #ebebeb;
+        color: #333333;
+        font-size: 12px;
+        padding: 1rem;
+        border-radius: 5px;
+        gap: 1rem;
+        margin: 0 auto;
+    }
+}

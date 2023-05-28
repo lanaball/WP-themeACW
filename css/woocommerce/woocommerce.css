@@ -1,0 +1,103 @@
+@charset "UTF-8";
+/**
+ * woocommerce.scss
+ * Governs the general look and feel of WooCommerce sections of stores using themes that do not
+ * integrate with WooCommerce specifically.
+ */
+
+ .root {
+    
+ --primary-main: #6E0F39;
+--secondary-main: #E6D3BF;
+
+--primary-accent: #E4A324;
+
+--primary-background: #fbf9f5;
+--secondary-background: #F5EDD5;
+ }
+
+.woocommerce .woocommerce-breadcrumb {
+  *zoom: 1;
+  margin: 0 0 1em;
+  padding: 0;
+  font-size: 0.92em;
+  color: #767676;
+}
+
+.woocommerce .woocommerce-breadcrumb::before, .woocommerce .woocommerce-breadcrumb::after {
+  content: " ";
+  display: table;
+}
+
+.woocommerce .woocommerce-breadcrumb::after {
+  clear: both;
+}
+
+.woocommerce .woocommerce-breadcrumb a {
+  color: #767676;
+}
+
+
+.woocommerce a.remove {
+  display: block;
+  font-size: 1.5em;
+  height: 1em;
+  width: 1em;
+  text-align: center;
+  line-height: 1;
+  border-radius: 100%;
+  color: red !important;
+  text-decoration: none;
+  font-weight: 700;
+  border: 0;
+}
+
+.woocommerce a.remove:hover {
+  color: #fff !important;
+  background: red;
+}
+
+.woocommerce div.product {
+    /* border: 1px solid red; */
+}
+
+
+.woocommerce .products {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* border: 1px solid green; */
+    margin: auto;
+    justify-content: center;
+    padding-bottom: 2rem;
+}
+
+.woocommerce .products .product {
+    /* border: 0.5px solid lightgray;  */
+    list-style-type: none;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+.woocommerce .products .product .button {
+    text-align: center;
+    padding: 1rem;
+    width: 50%;
+    margin: auto;
+    background-color: #fbf9f5;
+    border: #E4A324 2px solid;
+    font-weight: 700;
+}
+
+.woocommerce .attachment-woocommerce_thumbnail {
+  /* border: yellow 1px solid; */
+  width: 100%;
+  object-fit: cover;
+  max-height: 250px;
+  min-height: 250px;
+  margin: 0;
+  padding: 0;
+}

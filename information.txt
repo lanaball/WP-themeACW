@@ -1,0 +1,182 @@
+Custom Post types    :     
+News                 -      publications / surveys / events / circular
+
+Taxonomies  :
+Local Branches          -      Members Hub / donate / action hubs / local branches
+
+
+
+
+Plugin Version
+
+1. Create a new file: Using a text editor, create a new PHP file and save it with a `.php` extension. For example, you can name it `custom-post-type-plugin.php`.
+2. Add plugin header: At the beginning of the file, add the plugin header comments. Replace the placeholders with appropriate information:
+    <?php
+    /*
+    Plugin Name: Custom Post Type Plugin
+    Description: Creates a custom post type for your website.
+    Version: 1.0
+    Author: Your Name
+    Author URI: Your Website
+    */
+3. Add the code: Below the plugin header, add the following code to register your custom post type. Modify the code as per your requirements:
+    function custom_post_type_plugin() {
+        $labels = array(
+            'name'               => 'Custom Post Type',
+            'singular_name'      => 'Custom Post',
+            'menu_name'          => 'Custom Posts',
+            'add_new'            => 'Add New',
+            'add_new_item'       => 'Add New Custom Post',
+            'edit'               => 'Edit',
+            'edit_item'          => 'Edit Custom Post',
+            'new_item'           => 'New Custom Post',
+            'view'               => 'View',
+            'view_item'          => 'View Custom Post',
+            'search_items'       => 'Search Custom Posts',
+            'not_found'          => 'No custom posts found',
+            'not_found_in_trash' => 'No custom posts found in trash',
+            'parent'             => 'Parent Custom Post'
+        );
+        
+        $args = array(
+            'labels'              => $labels,
+            'public'              => true,
+            'has_archive'         => true,
+            'publicly_queryable'  => true,
+            'query_var'           => true,
+            'rewrite'             => array('slug' => 'custom-post'),
+            'capability_type'     => 'post',
+            'supports'            => array('title', 'editor', 'thumbnail', 'custom-fields'),
+            'taxonomies'          => array('category', 'post_tag'), // Add taxonomies if needed
+            'menu_position'       => 5,
+            'menu_icon'           => 'dashicons-admin-post', // Customize the menu icon
+            'show_in_rest'        => true // Enable Gutenberg editor support
+        );
+        
+        register_post_type('custom_post', $args);
+    }
+    add_action('init', 'custom_post_type_plugin');
+4. Save the plugin file: Save the changes to your plugin file (`custom-post-type-plugin.php`).
+5. Upload the plugin: Create a ZIP file containing the plugin file, or simply upload the PHP file directly, and go to your WordPress admin dashboard.
+6. Install and activate the plugin: Navigate to the "Plugins" section in the admin menu and click on "Add New". Choose the "Upload Plugin" option, select the ZIP file or upload the PHP file, and click on "Install Now". Once installed, click on "Activate" to activate the plugin.
+7. Verify the custom post type: After activating the plugin, your custom post type should be registered. You can find it in the sidebar menu of the admin dashboard with the name you provided in the code.
+
+By creating a plugin, you ensure that the custom post type functionality remains intact even if you switch themes, because plugins are not part of the custom theme but a separate entity that can be installed into your site. When you switch themes, the plugins you have installed stay. You can easily deactivate or delete the plugin if needed.
+
+
+
+
+
+Custom Taxnonomy :
+
+You can define taxonomies based on various attributes such as product types, locations, genres, topics, or any other relevant characteristics that help in organizing and structuring your content in a more logical and intuitive way.
+
+Contextual content presentation: Custom taxonomies can be used to create contextual relationships between different pieces of content. For example, if you have a website about movies, you can create taxonomies for actors, directors, and genres, allowing users to navigate from one movie to related movies or explore content related to a particular actor or director.
+
+Custom taxonomies enable advanced filtering and searching capabilities. Users can refine their search results based on specific taxonomies, narrowing down the content to their desired criteria. This can enhance the overall search experience and make it easier for users to find relevant information.
+
+
+2. How to create custom taxonomies in WordPress
+
+In WordPress, you can create custom taxonomies using the `register_taxonomy()` function. Here's a step-by-step guide on how to create custom taxonomies in WordPress:
+
+1. Determine the purpose of your custom taxonomy: Decide what type of content you want to classify using the taxonomy. For example, if you have a recipe website, you might want to create a custom taxonomy for "Cuisine" to categorize recipes by different cuisines.
+2. Open your theme's `functions.php` file: You can find this file in your WordPress theme's directory.
+3. Add code to register the custom taxonomy: Inside the `functions.php` file, add the following code to register your custom taxonomy:
+    function custom_taxonomy() {
+        $labels = array(
+            'name' => 'Custom Taxonomy',
+            'singular_name' => 'Custom Taxonomy',
+            'menu_name' => 'Custom Taxonomy',
+        );
+    
+        $args = array(
+            'labels' => $labels,
+            'hierarchical' => true, // Set to false for non-hierarchical taxonomy
+            'public' => true,
+            'show_ui' => true,
+            'show_admin_column' => true,
+            'query_var' => true,
+            'rewrite' => array( 'slug' => 'custom-taxonomy' ), // Replace with your desired slug
+        );
+    
+        register_taxonomy( 'custom_taxonomy', array( 'post' ), $args ); // Replace 'post' with your desired post type(s)
+    }
+    add_action( 'init', 'custom_taxonomy' );
+1. Customize the code: Modify the code according to your requirements. You can change the labels, slug, and other parameters to match your custom taxonomy's name and desired settings.
+2. Save the `functions.php` file: After making the necessary modifications, save the `functions.php` file.
+3. Update the permalinks: Go to the WordPress admin dashboard, navigate to "Settings" > "Permalinks," and click the "Save Changes" button. This updates the permalinks to include the new custom taxonomy.
+4. Test and use the custom taxonomy: Now, when you edit or create a post (or any other post type you specified), you should see the custom taxonomy field in the right sidebar. You can assign terms from your custom taxonomy to classify your content accordingly.
+
+
+
+1. Adding Multiple Loops to a Template File
+
+In WordPress, "the loop" refers to the main mechanism used to display posts or content on your website. It is a PHP code structure that retrieves and displays posts from the database based on specific criteria.
+The Loop - WordPress Theme Developer Handbook
+
+The loop is typically used in template files, such as `index.php`, `archive.php`, `single.php`, and other theme files, to iterate through posts/pages and display their content. Here's a basic example of the loop:
+
+    <?php
+    if (have_posts()) {
+        while (have_posts()) {
+            the_post();
+            // Display post content or excerpts here
+        }
+    } else {
+        // Display a message if no posts are found
+    }
+    ?>
+
+
+3. Full Example: Multiple Loops in WordPress Templates
+    // Default WordPress Loop
+    if (have_posts()) {
+        while (have_posts()) {
+            the_post();
+            // Display content for the default loop
+        }
+    }
+    
+    // First Custom Loop
+    // Defining the query for the first loop
+    $query1 = new WP_Query( array(
+        'post_type' => 'post',
+        'category_name' => 'news',
+        'posts_per_page' => 5,
+    ) );
+    
+    // Running the first loop
+    if ($query1->have_posts()) {
+        while ($query1->have_posts()) {
+            $query1->the_post();
+            // Display content for the first custom loop
+        }
+        wp_reset_postdata();
+    }
+    
+    // Second Custom Loop
+    // Defining the query for the second loop
+    $query2 = new WP_Query( array(
+        'post_type' => 'portfolio',
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'posts_per_page' => 3,
+    ) );
+    
+    // Running the secondloop
+    if ($query2->have_posts()) {
+        while ($query2->have_posts()) {
+            $query2->the_post();
+            // Display content for the second custom loop
+        }
+        wp_reset_postdata();
+    }
+    ?>
+
+
+
+    WOOCOMMERCE:
+    Donations - 25, 50, 100, 250, one-off or monthly, custom
+    Memberships - individual $50 monthly
+                - organisation small - 100, med - 200, large - 500
